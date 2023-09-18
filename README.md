@@ -2,7 +2,7 @@
 
 ![IoT Display](https://i0.wp.com/roboticsdna.in/wp-content/uploads/2021/05/p10-3216-red-led-display.jpg?fit=1000%2C1000&ssl=1)
 
-This project demonstrates IoT display control using an Arduino board and a P10 LED panel. It allows you to toggle between "News" and "Notice" modes and display relevant information.
+This project demonstrates IoT display made by NodeMCU ESP8266 board and 4* P10 LED panel. It allows you to toggle between "News" and "Notice" modes and display relevant information.
 
 ## Overview
 
@@ -11,6 +11,7 @@ This project comprises Arduino code for controlling the P10 LED panel and fetchi
 ## Features
 
 - Display text messages on a P10 LED panel.
+- Display the time from WORLDAPI
 - Toggle between "News" and "Notice" modes.
 - Fetch and display news or notices from external sources.
 - Automatic switch to the current date and time display.
@@ -41,6 +42,19 @@ This project comprises Arduino code for controlling the P10 LED panel and fetchi
 You can interact with the IoT display using a web interface. The web interface allows you to control the display mode and send notices to be displayed.
 
 Access the web interface by opening a web browser and entering the IP address of the Arduino board.
+## APIs Used
+
+### 1. News API
+- **Description:** Fetches top news headlines.
+- **Endpoint:** `https://news-api-vaqm.onrender.com/news-top`
+
+### 2. Notice API
+- **Description:** Retrieves notices for display.
+- **Endpoint:** `https://news-api-vaqm.onrender.com/get/notice`
+
+### 3. Toggle API
+- **Description:** Controls the display mode (News/Notice).
+- **Endpoint:** `https://news-api-vaqm.onrender.com/toggle`
 
 ## Dependencies
 
@@ -62,15 +76,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Thanks to [Author's Name] for the inspiration and code snippets.
+- Thanks to [Sahil Bhardwaj] for the web interface.
 - Special thanks to the Arduino and open-source community for their contributions.
 
 ## Author
+[Pragun jaswal]
 
-[Your Name]
 
-## Contributors
-
-- List contributors if applicable.
-
-Feel free to modify this README to suit your project's specific details and requirements. You can also include images, diagrams, and additional sections as needed.
+Feel free to update the code as per requirement..
