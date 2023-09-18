@@ -1,6 +1,6 @@
 # IoT Display Control with Arduino
 
-![IoT Display]([link-to-image](https://i0.wp.com/roboticsdna.in/wp-content/uploads/2021/05/p10-3216-red-led-display.jpg?fit=1000%2C1000&ssl=1))
+![IoT Display](https://i0.wp.com/roboticsdna.in/wp-content/uploads/2021/05/p10-3216-red-led-display.jpg?fit=1000%2C1000&ssl=1)
 
 This project demonstrates IoT display control using an Arduino board and a P10 LED panel. It allows you to toggle between "News" and "Notice" modes and display relevant information.
 
