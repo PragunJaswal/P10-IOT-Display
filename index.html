@@ -176,7 +176,11 @@
         const noticeInput = document.getElementById('noticeInput');
         const postButton = document.getElementById('postButton');
 
-        // Function to update the button and text based on the API data
+        let isTextBoxEdited = false;
+
+        // Define a timer variable
+        let typingTimer;
+
         // Function to update the button and text based on the API data
         async function updateState() {
             try {
@@ -197,11 +201,35 @@
                     currentStateText.textContent = 'Notice';
                 }
 
+                // Fetch the default text only if the text box has not been edited
+                if (!isTextBoxEdited) {
+                    const defaultTextResponse = await fetch('https://news-api-vaqm.onrender.com/get/notice');
+                    const defaultTextData = await defaultTextResponse.json();
+                    const defaultNotice = defaultTextData.Notice; // Extract the "Notice" property
+
+                    // Populate the default text in the text box
+                    noticeInput.value = defaultNotice;
+                }
+
                 loading.style.display = 'none'; // Hide the loading element
             } catch (error) {
                 console.error('Error fetching API data:', error);
             }
         }
+
+        // Add an event listener to the text box to set the "isTextBoxEdited" flag
+        noticeInput.addEventListener('input', () => {
+            isTextBoxEdited = true;
+
+            // Clear the previous timer and start a new one
+            clearTimeout(typingTimer);
+
+            // Set a timer to update the state after 3 seconds of inactivity
+            typingTimer = setTimeout(() => {
+                isTextBoxEdited = false;
+                updateState();
+            }, 5000);
+        });
 
         // Initial update
         updateState();
